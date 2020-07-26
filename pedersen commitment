@@ -1,6 +1,6 @@
 pragma solidity ^0.4.19;
 
-import "Curve.sol"
+import "Curve-gen.sol"
 
 contract Pedersen{
 function commit(uint256 m, uint256 r, uint256 h) public returns (uint256[2]) {
