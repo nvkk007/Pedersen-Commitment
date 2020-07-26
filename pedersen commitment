@@ -19,9 +19,9 @@ function commit(uint256 m, uint256 r, uint256 h) public returns (uint256[2]) {
         return (c.X, c.Y);
     }
     
- function verify(uint256[2] commitment, uint256 m, uint256 h, uint256 r) returns(bool res) internal {
+ function verify(uint256[2] commitment, uint256 m, uint256 r, uint256 h) returns(bool res) internal {
         // Use random point initially to generate 2nd generator H
-        Curve.G1Point H = Curve.HashToPoint(h);
+        Curve.G1Point H = Curve.HashToPoint(sha256(abi.encodePacked(h)));
 
         // Generate left point r * H
         Curve.G1Point memory a = Curve.g1mul(H, r);
